@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>PortUpdater</title>
+  </head>
+  <body>
+    <h1><a href="http://localhost:8000">Update</a></h1>
+    <button type="button" name="button" onclick="TestUpdate()">Update</button>
+    <div id="demo"></div>
+
+    <script>
+      function TestUpdate() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("demo").innerHTML = this.responseText;
+          }
+        };
+        xhttp.open("GET", "http://localhost:8000/", false);
+        xhttp.send();
+      }
+    </script>
+  </body>
+</html>
